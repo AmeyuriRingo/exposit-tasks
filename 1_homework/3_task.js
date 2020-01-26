@@ -81,14 +81,15 @@ function loadCapitalByCountryId(id) {
 
 function getCapitalByCountry({countryId, countryName}){
     return  loadCountry({id: countryId, name: countryName}).then(country=> {
-        return console.log(loadCapitalByCountryId(country.id))
+        return loadCapitalByCountryId(country.id).then(capital => {
+            console.log(capital)})
     })
 }
 
-// console.log(loadCountryById(2))
-//
-// console.log(loadCountry({id: 2}))
-//
-// console.log(loadCapitalByCountryId(2))
+console.log(loadCountryById(2))
 
-console.log(getCapitalByCountry({countryId: 1}))
+console.log(loadCountry({id: 2}))
+
+console.log(loadCapitalByCountryId(2))
+
+getCapitalByCountry({countryId: 1})
