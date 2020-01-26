@@ -21,20 +21,22 @@ function getSlicedValuesOne(source, param) {
 
 console.log(getSlicedValuesOne([{age: 12}, {age: 12}, {age: 13}, {id: 12}], 'age'))
 
-// function getSlicedValuesTwo(source, func) {
-//     func(source, 'age')
-//     uniqueResult = result.filter(function(element, pos) {
-//         return result.indexOf(element) == pos;
-//     })
-// }
-//
-// function filter(obj, param) {
-//     result = []
-//     obj.forEach(element => {
-//         if (element && element.hasOwnProperty(param) && element[param]) result.push(element[param])
-//     })
-//     return result;
-// }
-//
-// console.log(getSlicedValues([{age: 12}, {age: 12}, {age: 13}, {id: 12}]), filter)
+
+function getSlicedValuesTwo(source, filter) {
+    filter(source, 'age')
+    uniqueResult = result.filter(function(element, pos) {
+        return result.indexOf(element) == pos;
+    })
+    return uniqueResult
+}
+
+function filter(obj, param) {
+    result = []
+    obj.forEach(element => {
+        if (element && element.hasOwnProperty(param) && element[param]) result.push(element[param])
+    })
+    return result;
+}
+
+console.log(getSlicedValuesTwo([{age: 12}, {age: 12}, {age: 13}, {id: 12}], filter))
 
