@@ -1,6 +1,6 @@
 function getSlicedValues(source, param) {
     result = []
-    source.forEach(element => {
+    source.forEach(element=> {
         if (element && element.hasOwnProperty(param) && element[param]) result.push(element[param])
     })
     return result
@@ -13,13 +13,14 @@ function getSlicedValuesOne(source, param) {
     source.forEach(element => {
         if (element && element.hasOwnProperty(param) && element[param]) result.push(element[param])
     })
+    // fix object === object
     uniqueResult = result.filter(function(element, pos) {
-        return result.indexOf(element) == pos;
+            return result.indexOf(element) == pos;
     })
     return uniqueResult
 }
 
-console.log(getSlicedValuesOne([{age: 12}, {age: 12}, {age: 13}, {id: 12}], 'age'))
+console.log(getSlicedValuesOne([{age: 12}, {age: 12}, {age: 13}, {id: 12}, {age: {}}, {age: {}}], 'age'))
 
 
 function getSlicedValuesTwo(source, filter) {
@@ -38,5 +39,5 @@ function filter(obj, param) {
     return result;
 }
 
-console.log(getSlicedValuesTwo([{age: 12}, {age: 12}, {age: 13}, {id: 12}], filter))
+console.log(getSlicedValuesTwo([{age: 12}, {age: 12}, {age: 13}, {id: 12}, null, undefined, NaN], filter))
 

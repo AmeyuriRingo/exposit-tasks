@@ -33,6 +33,7 @@ let capitals = [
 
 function loadCountryById(id) {
     return new Promise(((resolve, reject) => {
+        // SetTimeout...
         if (Math.random() < 0.05) {
             console.log('Could not retrieve the data')
         } else {
@@ -58,7 +59,7 @@ function loadCountry({id, name}) {
             } else if (name) {
                 countries.forEach(element => {
                     if (element.country == name) {
-                        setTimeout(resolve(element), 3000)
+                        resolve(element)
                     }
                 })
                 reject(new Error('Country not found'))
@@ -81,8 +82,7 @@ function loadCapitalByCountryId(id) {
 
 function getCapitalByCountry({countryId, countryName}){
     return  loadCountry({id: countryId, name: countryName}).then(country=> {
-        return loadCapitalByCountryId(country.id).then(capital => {
-            console.log(capital)})
+        return loadCapitalByCountryId(country.id)
     })
 }
 
@@ -92,4 +92,5 @@ console.log(loadCountry({id: 2}))
 
 console.log(loadCapitalByCountryId(2))
 
-getCapitalByCountry({countryId: 1})
+getCapitalByCountry({countryId: 1}).then(capital => {
+    console.log(capital)})

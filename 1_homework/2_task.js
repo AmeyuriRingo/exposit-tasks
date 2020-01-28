@@ -3,28 +3,35 @@ function heatCalculator(initialTemp) {
     return function (deltaTemp) {
 
         let newTemp = oldTemp + deltaTemp;
-        if (newTemp < -273) {
+        if (newTemp <= -273) {
             console.log('Temperature limit reached')
         } else {
+            // fix >=
+            // fix case with 2 transitions at one (f.e. oldTemp = -10, newTemp = 200)
             let Q
-            if (oldTemp > 0 && newTemp < 0) {
+            if (oldTemp >= 0 && oldTemp < 100 && newTemp <= 0 && oldTemp != newTemp) {
                 Q = -4.2 * oldTemp - 330 + 1.8 * newTemp
-            } else if (oldTemp < 0 && newTemp > 0) {
-                Q = -1.8 * oldTemp + 330 + 4.2 * newTemp
-            } else if (oldTemp > 100 && newTemp < 100) {
-                Q = -2 * (oldTemp - 100) - 2.3 + 4.2 * (newTemp - 100)
-            } else if (oldTemp < 100 && newTemp > 100) {
-                Q = -4.2 * (oldTemp - 100) + 2.3 + 4.2 * (newTemp - 100)
+            } else if (oldTemp <= 0 && newTemp >= 0 && oldTemp != newTemp) {
+                if (newTemp >= 100) Q = -1.8 * oldTemp + 330 + 4.2 * 100 + 2.3 + 2 * (newTemp - 100)
+                 else Q = -1.8 * oldTemp + 330 + 4.2 * newTemp
+            } else if (oldTemp >= 100 && newTemp <= 100 && oldTemp != newTemp) {
+                if (newTemp <= 0) Q = -2 * (oldTemp - 100) - 2.3 - 4.2 * 100 - 330 + 1.8 * newTemp
+                else Q = -2 * (oldTemp - 100) - 2.3 + 4.2 * (newTemp - 100)
+            } else if (oldTemp <= 100 && newTemp >= 100 && oldTemp != newTemp) {
+                Q = -4.2 * (oldTemp - 100) + 2.3 + 2 * (newTemp - 100)
             } else {
                 Q = 4.2 * deltaTemp;
             }
-
             console.log({oldTemp, newTemp, Q})
-
             oldTemp = newTemp
         }
     }
 }
+
+const calculator = heatCalculator(-1)
+calculator(101)
+calculator(-101)
+
 
 const materials = ['water', 'iron', 'gold']
 const list = {
@@ -62,17 +69,17 @@ function heatCalculatorOne(initialTemp, material) {
 
     return function (deltaTemp) {
         const isMaterial = materials.includes(material);
-        if (isMaterial) {
-            let newTemp = oldTemp + deltaTemp;
+        if (!isMaterial) {
+            console.log('Unknown material')
 
-            if (newTemp > -273) {
+            if (newTemp <= -273) {
+                console.log('Temperature limit reached');
+            } else {
                 calculatorForHeat(oldTemp, newTemp, deltaTemp, material)
                 oldTemp = newTemp;
-            } else {
-                console.log('Temperature limit reached');
             }
         } else {
-            console.log('Unknown material')
+            let newTemp = oldTemp + deltaTemp;
         }
 
     }
@@ -81,13 +88,15 @@ function heatCalculatorOne(initialTemp, material) {
 function calculatorForHeat(oldTemp, newTemp, deltaTemp, material) {
     let heat = 0;
 
-    if (oldTemp > list[material].crystT && newTemp < list[material].crystT) {
+    if (oldTemp >= list[material].crystT && oldTemp < list[material].evaT && newTemp <= list[material].crystT && oldTemp != newTemp) {
         heat = -list[material].heatL * (oldTemp - list[material].crystT) - list[material].cryst + list[material].heatS * (newTemp - list[material].crystT)
-    } else if (oldTemp < list[material].crystT && newTemp > list[material].crystT) {
-        heat = -list[material].heatS * (oldTemp - list[material].crystT) + list[material].cryst + list[material].heatL * (newTemp - list[material].crystT)
-    } else if (oldTemp > list[material].evaT && newTemp < list[material].evaT) {
-        heat = -list[material].heatSt * (oldTemp - list[material].evaT) - list[material].eva + list[material].heatL * (newTemp - list[material].evaT)
-    } else if (oldTemp < list[material].evaT && newTemp > list[material].evaT) {
+    } else if (oldTemp <= list[material].crystT && newTemp >= list[material].crystT && oldTemp != newTemp) {
+        if (newTemp >= list[material].evaT) heat = -list[material].heatS * (oldTemp - list[material].crystT) + list[material].cryst + list[material].heatL * list[material].evaT + list[material].eva + list[material].heatSt * (newTemp - list[material].evaT)
+        else heat = -list[material].heatS * (oldTemp - list[material].crystT) + list[material].cryst + list[material].heatL * (newTemp - list[material].crystT)
+    } else if (oldTemp >= list[material].evaT && newTemp <= list[material].evaT && oldTemp != newTemp) {
+        if (newTemp <= list[material].crystT) heat = -list[material].heatSt * (oldTemp - list[material].evaT) - list[material].eva - list[material].heatL * (newTemp - list[material].evaT) - list[material].cryst + list[material].heatS * (newTemp - list[material].crystT)
+        else heat = -list[material].heatSt * (oldTemp - list[material].evaT) - list[material].eva + list[material].heatL * (newTemp - list[material].evaT)
+    } else if (oldTemp <= list[material].evaT && newTemp >= list[material].evaT && oldTemp != newTemp) {
         heat = -list[material].heatL * (oldTemp - list[material].evaT) + list[material].eva + list[material].heatSt * (newTemp - list[material].evaT)
     } else {
         heat = list[material].heatL * deltaTemp;
@@ -95,28 +104,23 @@ function calculatorForHeat(oldTemp, newTemp, deltaTemp, material) {
     console.log({oldTemp, newTemp, heat, material});
 }
 
-const calculator = heatCalculator(0)
-calculator(20)
-calculator(90)
-calculator(-15)
-
-const ironCalculator = heatCalculatorOne(0, 'iron')
-const waterCalculattor = heatCalculatorOne(0, 'water')
-const goldCalculator = heatCalculatorOne(0, 'gold')
-const randomCalculator = heatCalculatorOne(0, 'asasa')
-
-ironCalculator(3033)
-ironCalculator(10)
-ironCalculator(10)
-ironCalculator(-10)
-
-waterCalculattor(20)
-waterCalculattor(90)
-waterCalculattor(-15)
-
-goldCalculator(2790)
-goldCalculator(10)
-goldCalculator(10)
-goldCalculator(-10)
-
-randomCalculator(10)
+// const ironCalculator = heatCalculatorOne(0, 'iron')
+const waterCalculator = heatCalculatorOne(-1, 'water')
+// const goldCalculator = heatCalculatorOne(0, 'gold')
+// const randomCalculator = heatCalculatorOne(0, 'asasa')
+//
+// ironCalculator(3048)
+// ironCalculator(1)
+// ironCalculator(1)
+// ironCalculator(-1)
+//
+waterCalculator(101)
+waterCalculator(-101)
+waterCalculator(-15)
+//
+// goldCalculator(1064)
+// goldCalculator(10)
+// goldCalculator(10)
+// goldCalculator(-10)
+//
+// randomCalculator(10)
