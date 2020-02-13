@@ -1,11 +1,29 @@
-import { loadCapitalByCountryId } from './loadCapitalByCountryId';
-import { loadCountry } from './loadCountry.js';
+import {getCapitalByCountry} from './getCapitalByCountry';
 
-function getCapitalByCountry({countryId, countryName}){
-    return  loadCountry({id: countryId, name: countryName}).then(country=> {
-        return loadCapitalByCountryId(country.id).then(capital => {
-            console.log(capital)})
+getCapitalByCountry({countryId: 1, countryName: 'sadadad'})
+    .then(capital => {
+    console.log(capital)})
+    .catch(error => {
+        console.log(error)
     })
-}
 
-getCapitalByCountry({countryId: 1})
+getCapitalByCountry({countryId: 2, countryName: 'Ukraine'})
+    .then(capital => {
+        console.log(capital)})
+    .catch(error => {
+        console.log(error)
+    })
+
+getCapitalByCountry({countryId: 1, countryName: 'Minsk'})
+    .then(capital => {
+        console.log(capital)})
+    .catch(error => {
+        console.log(error)
+    })
+
+getCapitalByCountry({countryId: 1, countryName: undefined})
+    .then(capital => {
+        console.log(capital)})
+    .catch(error => {
+        console.log(error)
+    })

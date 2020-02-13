@@ -7,7 +7,7 @@ export function loadCapitalByCountryId(id) {
                 resolve(element.name)
             }
         })
-        reject(new Error('Country not found'))
+        reject(('Country not found'))
 
     }))
 }
