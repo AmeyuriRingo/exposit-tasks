@@ -20,7 +20,7 @@ function getSlicedValuesOne(source, param) {
     return uniqueResult
 }
 
-console.log(getSlicedValuesOne([{age: 12}, {age: 12}, {age: 13}, {id: 12}, {age: {}}, {age: {}}], 'age'))
+console.log(getSlicedValuesOne([{age: 12}, {age: 12}, {age: 13}, {id: 12}, {age: {x: 1}}, {age: {x: 1}}], 'age'))
 
 
 function getSlicedValuesTwo(source, filter) {
@@ -38,6 +38,6 @@ function filter(obj, param) {
     })
     return result;
 }
-
-console.log(getSlicedValuesTwo([{age: 12}, {age: 12}, {age: 13}, {id: 12}, null, undefined, NaN], filter))
+// !!!!!! areObjectsEqual check not implemented!
+console.log(getSlicedValuesTwo([{age: 12}, {age: 12}, {age: 13}, {id: 12},{age: {}}, { age: {}}, null, undefined, NaN], filter))
 

@@ -1,4 +1,5 @@
 function heatCalculator(initialTemp) {
+    // !!!!!! initial temp not checked
     let oldTemp = initialTemp;
     return function (deltaTemp) {
 
@@ -8,6 +9,7 @@ function heatCalculator(initialTemp) {
         } else {
             // fix >=
             // fix case with 2 transitions at one (f.e. oldTemp = -10, newTemp = 200)
+            // !!!!!! Too complicated
             let Q
             if (oldTemp >= 0 && oldTemp < 100 && newTemp <= 0 && oldTemp != newTemp) {
                 Q = -4.2 * oldTemp - 330 + 1.8 * newTemp
@@ -28,9 +30,9 @@ function heatCalculator(initialTemp) {
     }
 }
 
-const calculator = heatCalculator(-1)
-calculator(101)
-calculator(-101)
+const calculator = heatCalculator(-100)
+calculator(300)
+calculator(-300)
 
 
 const materials = ['water', 'iron', 'gold']
@@ -68,18 +70,18 @@ function heatCalculatorOne(initialTemp, material) {
     let oldTemp = initialTemp;
 
     return function (deltaTemp) {
+
         const isMaterial = materials.includes(material);
         if (!isMaterial) {
             console.log('Unknown material')
-
+        } else {
+            let newTemp = oldTemp + deltaTemp;
             if (newTemp <= -273) {
                 console.log('Temperature limit reached');
             } else {
                 calculatorForHeat(oldTemp, newTemp, deltaTemp, material)
                 oldTemp = newTemp;
             }
-        } else {
-            let newTemp = oldTemp + deltaTemp;
         }
 
     }
@@ -87,7 +89,6 @@ function heatCalculatorOne(initialTemp, material) {
 
 function calculatorForHeat(oldTemp, newTemp, deltaTemp, material) {
     let heat = 0;
-
     if (oldTemp >= list[material].crystT && oldTemp < list[material].evaT && newTemp <= list[material].crystT && oldTemp != newTemp) {
         heat = -list[material].heatL * (oldTemp - list[material].crystT) - list[material].cryst + list[material].heatS * (newTemp - list[material].crystT)
     } else if (oldTemp <= list[material].crystT && newTemp >= list[material].crystT && oldTemp != newTemp) {
@@ -104,23 +105,26 @@ function calculatorForHeat(oldTemp, newTemp, deltaTemp, material) {
     console.log({oldTemp, newTemp, heat, material});
 }
 
-// const ironCalculator = heatCalculatorOne(0, 'iron')
+const ironCalculator = heatCalculatorOne(0, 'iron')
 const waterCalculator = heatCalculatorOne(-1, 'water')
-// const goldCalculator = heatCalculatorOne(0, 'gold')
-// const randomCalculator = heatCalculatorOne(0, 'asasa')
+const goldCalculator = heatCalculatorOne(0, 'gold')
+const randomCalculator = heatCalculatorOne(0, 'asasa')
 //
-// ironCalculator(3048)
-// ironCalculator(1)
-// ironCalculator(1)
-// ironCalculator(-1)
+ironCalculator(3048)
+ironCalculator(1)
+ironCalculator(1)
+randomCalculator(10)
+ironCalculator(-1)
 //
 waterCalculator(101)
 waterCalculator(-101)
 waterCalculator(-15)
 //
-// goldCalculator(1064)
-// goldCalculator(10)
-// goldCalculator(10)
-// goldCalculator(-10)
+goldCalculator(1064)
+goldCalculator(10)
+goldCalculator(10)
+goldCalculator(-10)
 //
-// randomCalculator(10)
+
+ironCalculator(100)
+ironCalculator(-100)

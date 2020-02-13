@@ -49,16 +49,17 @@ function loadCountryById(id) {
 
 function loadCountry({id, name}) {
     return new Promise((resolve, reject) => {
-            if (id) {
+        // !!!!!! Wrong logic - what if both id name defined?
+            if (id && name) {
                 countries.forEach(element => {
-                    if (element.id == id) {
+                    if (element.id == id || element.country == name) {
                         resolve(element)
                     }
                 })
                 reject(new Error('Country not found'))
-            } else if (name) {
+            } else if (id || name) {
                 countries.forEach(element => {
-                    if (element.country == name) {
+                    if (element.id == id || element.country == name) {
                         resolve(element)
                     }
                 })
@@ -76,7 +77,6 @@ function loadCapitalByCountryId(id) {
             }
         })
         reject(new Error('Country not found'))
-
     }))
 }
 
@@ -86,11 +86,30 @@ function getCapitalByCountry({countryId, countryName}){
     })
 }
 
-console.log(loadCountryById(2))
+// !!!!!! - error protection - catch is missing
+loadCountryById(2)
+    .then(country => {
+        console.log(country)
+    })
+    .catch(error => {
+        console.log(error)
+    })
 
-console.log(loadCountry({id: 2}))
+loadCountry({name: 'Ukraine'})
+    .then(country => {
+    console.log(country)
+})
+    .catch(error => {
+        console.log(error)
+    }
+)
+
 
 console.log(loadCapitalByCountryId(2))
 
-getCapitalByCountry({countryId: 1}).then(capital => {
+getCapitalByCountry({countryName: "Ukraine"})
+    .then(capital => {
     console.log(capital)})
+    .catch(error => {
+        console.log(error)
+})
