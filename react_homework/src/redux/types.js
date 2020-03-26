@@ -1,0 +1,4 @@
+export const CREATE_USER = 'CREATE_USER'
+export const FETCH_USERS = 'FETCH_USERS'
+export const CREATE_SEARCHED_USERS = 'CREATE_SEARCHED_USERS'
+export const EDIT_USERS = 'EDIT_USERS'
