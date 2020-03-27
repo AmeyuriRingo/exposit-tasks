@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1aa25581-8d78-4d38-8bcc-9f8edd7fda83" name="Default Changelist" comment="" />
+    <list default="true" id="1aa25581-8d78-4d38-8bcc-9f8edd7fda83" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/forms/AddUserForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/AddUserForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/forms/EditUserForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/EditUserForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/searchBar/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/searchBar/SearchBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/showUsers/ShowUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/showUsers/ShowUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/showUsers/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/showUsers/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/showUsers/UserCards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/showUsers/UserCards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/root.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,7 +22,7 @@
     </execution>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1ZFZvV76T2jDGX1fGfk4gJHmrba" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -53,7 +62,9 @@
       <updated>1584437032271</updated>
       <workItem from="1584437035379" duration="31508000" />
       <workItem from="1585081946324" duration="31235000" />
-      <workItem from="1585216094617" duration="2461000" />
+      <workItem from="1585216094617" duration="3786000" />
+      <workItem from="1585235728047" duration="2147000" />
+      <workItem from="1585282542447" duration="7585000" />
     </task>
     <task id="LOCAL-00001" summary="finish react homework">
       <created>1585216256707</created>
@@ -93,13 +104,23 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="378" y="72" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1584957915168" />
-    <state x="378" y="85" width="683" height="729" key="find.popup" timestamp="1585215884740">
+    <state x="378" y="85" width="683" height="729" key="find.popup" timestamp="1585291314216">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="378" y="85" width="683" height="729" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1585215884740" />
+    <state x="378" y="85" width="683" height="729" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1585291314216" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1585074635178">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1585074635178" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/redux/createStore.js</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

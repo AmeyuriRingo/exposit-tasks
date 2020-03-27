@@ -7,18 +7,30 @@ const SearchBar = ({users, createSearchedUser}) => {
 
     const handleChange = event => {
         setSearchItem({value: event.target.value})
-
     }
 
     useEffect(() => {
+        if (searchItem.value) {
             const results = users.users.filter(user =>
                 user.name.includes(searchItem.value)
             )
-            createSearchedUser(results)
+            if (results.length !== 0) {
+                createSearchedUser(results)
+            } else {
+                let empty = {
+                    empty: true
+                }
+                createSearchedUser(empty)
+            }
+        } else {
+            let empty = undefined
+            createSearchedUser(empty)
+        }
+
     },[searchItem])
 
     return (
-        <form>
+        <form className="mt-2">
             <div className="form-group">
                 <input type="text" className="form-control" placeholder="Search" value={searchItem.value}
                        onChange={handleChange.bind(this)}/>

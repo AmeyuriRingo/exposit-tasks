@@ -3,10 +3,10 @@ import {connect} from 'react-redux'
 import {createUser} from "../../redux/actions/actions";
 
 const AddUserForm = ({props, createUser}) => {
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState({name: '', phone: '', email: ''})
     const [formDisplay, setFormDisplay] = useState({className:'form-group d-none'})
     const [isButtonDisabled, setIsButtonDisabled] = useState(false)
-    const [address, setAddress] = useState({})
+    const [address, setAddress] = useState({city: '', street: ''})
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -17,7 +17,7 @@ const AddUserForm = ({props, createUser}) => {
     }
 
     const handleInputHandler = (type, event) => {
-        if (type == 'city' || type == 'street') {
+        if (type === 'city' || type === 'street') {
             setAddress({...address, [type]: event.target.value})
         } else {
             setUser({...user, [type]: event.target.value})
@@ -51,7 +51,7 @@ const AddUserForm = ({props, createUser}) => {
                     <div className="col-md-4 mb-3">
                         <div className="input-group mt-2">
                             <div className="input-group-prepend">
-                                <span className="input-group-text" style={{height: 38, width: 80}} val>Name</span>
+                                <span className="input-group-text" style={{height: 38, width: 80}}>Name</span>
                             </div>
                             <input
                                 type="text"
@@ -64,7 +64,7 @@ const AddUserForm = ({props, createUser}) => {
                         </div>
                         <div className="input-group mt-2">
                             <div className="input-group-prepend">
-                                <span className="input-group-text" style={{height: 38, width: 80}} val>Phone</span>
+                                <span className="input-group-text" style={{height: 38, width: 80}}>Phone</span>
                             </div>
                             <input
                                 type="phone"
@@ -77,10 +77,11 @@ const AddUserForm = ({props, createUser}) => {
                         </div>
                         <div className="input-group mt-2">
                             <div className="input-group-prepend">
-                                <span className="input-group-text" style={{height: 38, width: 80}} val>Email</span>
+                                <span className="input-group-text" style={{height: 38, width: 80}}>Email</span>
                             </div>
                             <input
-                                type="email"
+                                type="text"
+                                pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
                                 className="form-control"
                                 placeholder="Email"
                                 value={user.email}
@@ -90,7 +91,7 @@ const AddUserForm = ({props, createUser}) => {
                         </div>
                         <div className="input-group mt-2">
                             <div className="input-group-prepend">
-                                <span className="input-group-text" style={{height: 38, width: 80}} val>City</span>
+                                <span className="input-group-text" style={{height: 38, width: 80}}>City</span>
                             </div>
                             <input
                                 type="text"
@@ -103,7 +104,7 @@ const AddUserForm = ({props, createUser}) => {
                         </div>
                         <div className="input-group mt-2">
                             <div className="input-group-prepend">
-                                <span className="input-group-text" style={{height: 38, width: 80}} val>Address</span>
+                                <span className="input-group-text" style={{height: 38, width: 80}}>Address</span>
                             </div>
                             <input
                                 type="text"
