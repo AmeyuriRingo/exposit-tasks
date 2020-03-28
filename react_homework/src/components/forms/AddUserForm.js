@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {connect} from 'react-redux'
 import {createUser} from "../../redux/actions/actions";
 
-const AddUserForm = ({props, createUser}) => {
+const AddUserForm = ({users, createUser}) => {
     const [user, setUser] = useState({name: '', phone: '', email: ''})
     const [formDisplay, setFormDisplay] = useState({className:'form-group d-none'})
     const [isButtonDisabled, setIsButtonDisabled] = useState(false)
@@ -11,7 +11,7 @@ const AddUserForm = ({props, createUser}) => {
     const handleSubmit = event => {
         event.preventDefault()
         let currentUser = user
-        currentUser = {...user, address: address}
+        currentUser = {id: users.users.length + 1 ,...user, address: address}
         createUser(currentUser)
         displayForm(false)
     }
@@ -130,8 +130,14 @@ const AddUserForm = ({props, createUser}) => {
 )
 }
 
+const mapStateToProps = state => {
+    return {
+        users: state.users
+    }
+}
+
 const mapDispatchToProps = {
     createUser
 }
 
-export default connect(null, mapDispatchToProps)(AddUserForm)
+export default connect(mapStateToProps, mapDispatchToProps)(AddUserForm)

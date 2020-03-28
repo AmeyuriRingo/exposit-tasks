@@ -1,4 +1,4 @@
-import {CREATE_USER, FETCH_USERS, CREATE_SEARCHED_USERS, EDIT_USERS} from "../types";
+import {CREATE_USER, FETCH_USERS, CREATE_SEARCHED_USERS, EDIT_USERS, CREATE_SEARCH_TEXT} from "../types";
 
 const initialState ={
     users: []
@@ -14,6 +14,8 @@ export const userReducer = (state = initialState, action) => {
             return {...state, searchedUsers: action.payload}
         case EDIT_USERS:
             return {...state, users: action.payload}
+        case CREATE_SEARCH_TEXT:
+            return {...state, searchText: action.payload}
         default: return state
     }
 }

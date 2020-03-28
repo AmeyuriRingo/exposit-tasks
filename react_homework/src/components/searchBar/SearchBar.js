@@ -1,18 +1,17 @@
 import React, {useEffect, useState} from "react";
 import {connect} from "react-redux";
-import {createSearchedUser} from "../../redux/actions/actions";
+import {createSearchedUser, createSearchText} from "../../redux/actions/actions";
 
-const SearchBar = ({users, createSearchedUser}) => {
-    const [searchItem, setSearchItem] = useState({value: ''})
+const SearchBar = ({users,createSearchText, createSearchedUser}) => {
 
     const handleChange = event => {
-        setSearchItem({value: event.target.value})
+        createSearchText(event.target.value)
     }
 
     useEffect(() => {
-        if (searchItem.value) {
+        if (users.searchText) {
             const results = users.users.filter(user =>
-                user.name.includes(searchItem.value)
+                user.name.includes(users.searchText)
             )
             if (results.length !== 0) {
                 createSearchedUser(results)
@@ -26,13 +25,12 @@ const SearchBar = ({users, createSearchedUser}) => {
             let empty = undefined
             createSearchedUser(empty)
         }
-
-    },[searchItem])
+    }, [users.searchText])
 
     return (
         <form className="mt-2">
             <div className="form-group">
-                <input type="text" className="form-control" placeholder="Search" value={searchItem.value}
+                <input type="text" className="form-control" placeholder="Search" value={users.searchText ? users.searchText : ''}
                        onChange={handleChange.bind(this)}/>
             </div>
         </form>
@@ -46,7 +44,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    createSearchedUser
+    createSearchedUser,
+    createSearchText
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)

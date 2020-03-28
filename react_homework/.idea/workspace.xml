@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1aa25581-8d78-4d38-8bcc-9f8edd7fda83" name="Default Changelist" comment="">
+    <list default="true" id="1aa25581-8d78-4d38-8bcc-9f8edd7fda83" name="Default Changelist" comment="fixed searchBar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/forms/AddUserForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/AddUserForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/forms/EditUserForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/EditUserForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/searchBar/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/searchBar/SearchBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/showUsers/ShowUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/showUsers/ShowUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/showUsers/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/showUsers/User.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/showUsers/UserCards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/showUsers/UserCards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/root.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/actions/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/userReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/userReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/types.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +63,7 @@
       <workItem from="1585081946324" duration="31235000" />
       <workItem from="1585216094617" duration="3786000" />
       <workItem from="1585235728047" duration="2147000" />
-      <workItem from="1585282542447" duration="7585000" />
+      <workItem from="1585282542447" duration="11089000" />
     </task>
     <task id="LOCAL-00001" summary="finish react homework">
       <created>1585216256707</created>
@@ -73,7 +72,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585216256707</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="bugfix">
+      <created>1585307190175</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1585307190175</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -81,7 +87,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="finish react homework" />
-    <option name="LAST_COMMIT_MESSAGE" value="finish react homework" />
+    <MESSAGE value="bugfix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bugfix" />
   </component>
   <component name="WindowStateProjectService">
     <state x="419" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585215087825">
@@ -92,14 +99,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1585215094131" />
-    <state x="268" y="52" key="CommitChangelistDialog2" timestamp="1585216256339">
+    <state x="268" y="52" key="CommitChangelistDialog2" timestamp="1585404302841">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="268" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1585216256339" />
-    <state x="320" y="178" key="Vcs.Push.Dialog.v2" timestamp="1585216383566">
+    <state x="268" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1585404302841" />
+    <state x="320" y="178" key="Vcs.Push.Dialog.v2" timestamp="1585307389293">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="178" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1585216383566" />
+    <state x="320" y="178" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1585307389293" />
     <state x="378" y="72" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584957915168">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
