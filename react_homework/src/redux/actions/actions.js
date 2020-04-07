@@ -14,13 +14,6 @@ export function fetchUsers(users) {
     }
 }
 
-export function createSearchedUser(users) {
-    return {
-        type: CREATE_SEARCHED_USERS,
-        payload: users
-    }
-}
-
 export function editUsers(user) {
     return{
         type: EDIT_USERS,

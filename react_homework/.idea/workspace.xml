@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1aa25581-8d78-4d38-8bcc-9f8edd7fda83" name="Default Changelist" comment="fixed searchBar">
+    <list default="true" id="1aa25581-8d78-4d38-8bcc-9f8edd7fda83" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/searchReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/forms/AddUserForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/AddUserForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/searchBar/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/searchBar/SearchBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/showUsers/UserCards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/showUsers/UserCards.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/actions/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/rootReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/userReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/userReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/types.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +63,9 @@
       <workItem from="1585081946324" duration="31235000" />
       <workItem from="1585216094617" duration="3786000" />
       <workItem from="1585235728047" duration="2147000" />
-      <workItem from="1585282542447" duration="11089000" />
+      <workItem from="1585282542447" duration="11539000" />
+      <workItem from="1585643131441" duration="5928000" />
+      <workItem from="1586091434125" duration="1671000" />
     </task>
     <task id="LOCAL-00001" summary="finish react homework">
       <created>1585216256707</created>
@@ -79,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585307190175</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fixed searchBar">
+      <created>1585404335281</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1585404335281</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -88,33 +97,34 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="finish react homework" />
     <MESSAGE value="bugfix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bugfix" />
+    <MESSAGE value="fixed searchBar" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed searchBar" />
   </component>
   <component name="WindowStateProjectService">
     <state x="419" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585215087825">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="419" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1585215087825" />
-    <state x="458" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585215094131">
+    <state x="458" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585847567972">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="458" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1585215094131" />
-    <state x="268" y="52" key="CommitChangelistDialog2" timestamp="1585404302841">
+    <state x="458" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1585847567972" />
+    <state x="268" y="52" key="CommitChangelistDialog2" timestamp="1585404335068">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="268" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1585404302841" />
-    <state x="320" y="178" key="Vcs.Push.Dialog.v2" timestamp="1585307389293">
+    <state x="268" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1585404335068" />
+    <state x="320" y="178" key="Vcs.Push.Dialog.v2" timestamp="1585404336626">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="178" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1585307389293" />
+    <state x="320" y="178" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1585404336626" />
     <state x="378" y="72" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584957915168">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="378" y="72" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1584957915168" />
-    <state x="378" y="85" width="683" height="729" key="find.popup" timestamp="1585291314216">
+    <state x="378" y="85" width="683" height="729" key="find.popup" timestamp="1586248783173">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="378" y="85" width="683" height="729" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1585291314216" />
+    <state x="378" y="85" width="683" height="729" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1586248783173" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1585074635178">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

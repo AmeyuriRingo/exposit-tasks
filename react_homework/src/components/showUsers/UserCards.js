@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import User from "./User";
 import {thunkFetchUserData} from "../../redux/reducers/thunkFetchUserData";
 
-const UserCards = ({users, loadUsers}) => {
+const UserCards = ({users, searchedUsers, loadUsers}) => {
 
     useEffect(() => {
         if (users.users.length === 0) {
@@ -12,16 +12,11 @@ const UserCards = ({users, loadUsers}) => {
 
     }, [loadUsers])
 
-
-    if (users.searchedUsers) {
-        if (users.searchedUsers.empty === true) {
+    if (searchedUsers) {
+        if (searchedUsers.length === 0) {
             return <User showUsers={false}/>
-        }
-        if (users.users && users.searchedUsers.empty !== true) {
-            if (users.searchedUsers) {
-                return users.searchedUsers.map(user => <User user={user} key={user.id}/>)
-            }
-            return users.users.map(user => <User user={user} key={user.id}/>)
+        } else {
+            return searchedUsers.map(user => <User user={user} key={user.id}/>)
         }
     }
     return users.users.map(user => <User user={user} key={user.id}/>)
@@ -29,7 +24,8 @@ const UserCards = ({users, loadUsers}) => {
 
 const mapStateToProps = state => {
     return {
-        users: state.users
+        users: state.users,
+        searchedUsers: state.users.users.filter(user => user.name.includes(state.searchBar.searchText))
     }
 }
 
